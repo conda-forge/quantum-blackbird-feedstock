@@ -1,5 +1,5 @@
 {% set name = "quantum-blackbird" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/quantum-blackbird-{{ version }}.tar.gz
-  sha256: bdde87efc4bc8b9769c6d15be8d08ce5e96ca15de119e4688b7df5c67e5bc994
+  sha256: 065c73bf5263ce8f9b72dcd2b434f3bfbb471f0a6907c97a617ec0c8bde01db3
 
 build:
   number: 0
@@ -20,7 +20,7 @@ requirements:
     - pip
     - python >=3.6
   run:
-    - antlr-python-runtime ==4.8
+    - antlr-python-runtime ==4.9.2
     # Actual name is antlr4-python3-runtime but conda-forge name was different until 4.9.3
     - networkx
     - numpy >=1.16
