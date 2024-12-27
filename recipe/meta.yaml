@@ -7,24 +7,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/quantum-blackbird-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/quantum-blackbird-{{ version }}.tar.gz
   sha256: 065c73bf5263ce8f9b72dcd2b434f3bfbb471f0a6907c97a617ec0c8bde01db3
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - antlr-python-runtime ==4.9.2
     # Actual name is antlr4-python3-runtime but conda-forge name was different until 4.9.3
     - networkx
     - numpy >=1.16
-    - python >=3.6
+    - python >={{ python_min }}
     - sympy
 
 test:
@@ -34,6 +34,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/XanaduAI/blackbird
